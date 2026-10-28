@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #790000;
+    background-image:
+        radial-gradient(ellipse at 76% 35%, rgba(255, 74, 50, .72), transparent 38%),
+        radial-gradient(ellipse at 54% 110%, rgba(46, 0, 0, .72), transparent 52%),
+        radial-gradient(circle at 82% 20%, rgba(255, 218, 150, .16) 0 2px, transparent 3px),
+        linear-gradient(125deg, #570000, #a90008 48%, #780000);
+    background-size: auto, auto, 34px 34px, auto;
+    background-attachment: fixed;
+}
+
+.menu {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 5;
+    width: 150px;
+    background: #7b0000;
+    box-shadow: 3px 0 10px #500000;
+}
+.menu ul { list-style: none; }
+.menu li { position: relative; }
+.menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+.menu a:hover { background: #500000; }
+.menu li ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 180px;
+    background: #500000;
+}
+.menu li:hover ul { display: block; }
+
+.contenido {
+    width: min(1000px, calc(100% - 190px));
+    margin: 24px auto 0;
+    transform: translateX(75px);
+}
+.banner-contactos {
+    display: block;
+    width: min(900px, 100%); 
+    height: auto;
+    margin: 0 auto 32px;
+    transition: transform 220ms ease;
+}
+.banner-contactos:hover { transform: scale(1.315); }
+@media (prefers-reduced-motion: reduce) {
+    .banner-contactos { transition: none; }
+}
+
+.hojas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto 32px;
+    padding: 12px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 0 12px 3px rgba(255, 0, 0, .8);
+}
+.hoja { flex: 1; min-width: 0; }
+.hoja summary {
+    padding: 14px 18px;
+    border: 2px solid #fff;
+    border-radius: 9px;
+    background: #c90012;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    list-style: none;
+}
+.hoja summary::-webkit-details-marker { display: none; }
+.hoja summary:hover, .hoja[open] summary { background: #750000; }
+.hoja > img {
+    display: block;
+    width: min(816px, 100%);
+    height: auto;
+    margin: 24px auto 8px;
+    border-radius: 3px;
+}
+
+.redes {
+    padding: 20px 14px 28px;
+    border-radius: 40px;
+    background: #fff;
+    box-shadow: 1px 1px 8px 4px red;
+}
+.redes h1 {
+    margin-bottom: 48px;
+    color: #111;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    text-align: center;
+}
+.redes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 48px 20px;
+}
+.red { text-align: center; }
+.red img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}
+.red h2 {
+    color: #7b0000;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+.whatsapp { grid-column: 2; }
+.logo-dominion {
+    grid-column: 3;
+    width: min(300px, 100%);
+    height: auto;
+}
+
+.footer {
+    margin: 40px -1px 0;
+    position: relative;
+    left: calc((100% - 100vw) / 2 + 75px);
+    width: calc(100vw - 150px);
+    padding: 25px;
+    background: #750000;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .menu { width: 120px; }
+    .menu a { padding: 12px 10px; }
+    .contenido {
+        width: calc(100% - 140px);
+        margin: 18px 10px 0 130px;
+        transform: none;
+    }
+    .banner-contactos { margin-bottom: 22px; }
+    .hojas { flex-direction: column; gap: 10px; }
+    .hoja summary { padding: 12px 8px; font-size: 14px; }
+    .redes { padding: 18px 8px 24px; border-radius: 28px; }
+    .redes h1 { margin-bottom: 32px; font-size: 24px; }
+    .redes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 8px; }
+    .red img { width: 72px; height: 72px; }
+    .red h2 { font-size: 14px; }
+    .whatsapp { grid-column: 1; }
+    .logo-dominion { grid-column: 2; }
+    .footer {
+        left: -10px;
+        width: calc(100vw - 120px);
+    }
+}
+
